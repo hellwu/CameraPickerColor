@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CameraPickerColor</string>
+    <string name="bt_apply">Apply</string>
+    <string name="rgb_color_format">R:%03d&#160;&#160;&#160;G:%03d&#160;&#160;&#160;B:%03d</string>
+</resources>
