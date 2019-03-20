@@ -46,7 +46,7 @@
         <SurfaceView
             android:id="@+id/surfaceview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="1080px" />
 
         <com.hellw.camerapickercolor.RoundPickerColorView
             android:id="@+id/view"

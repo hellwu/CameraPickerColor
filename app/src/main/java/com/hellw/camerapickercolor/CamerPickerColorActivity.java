@@ -69,18 +69,21 @@ public class CamerPickerColorActivity extends AppCompatActivity implements Surfa
         List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();//获取所有支持的camera尺寸
         List<Camera.Size> pictureSizes  = parameters.getSupportedPictureSizes();
         float previewRate = getScreenRate(this);
+        float previewRate2 = (1080.0f / 1080.0f);
+        Log.i("hellw", "previewRate = "+previewRate);
+        Log.i("hellw", "previewRate2 = "+previewRate2);
         //设置PictureSize
-        Camera.Size pictureSize = CameraPreviewUtil.getInstance().getPictureSize(pictureSizes,previewRate, 1080);
+        Camera.Size pictureSize = CameraPreviewUtil.getInstance().getPictureSize(pictureSizes,previewRate2, 800);
         parameters.setPictureSize(pictureSize.width, pictureSize.height);
         //设置PreviewSize
-        Camera.Size previewSize = CameraPreviewUtil.getInstance().getPreviewSize(previewSizes, previewRate, 1080);
+        Camera.Size previewSize = CameraPreviewUtil.getInstance().getPreviewSize(previewSizes, previewRate2, 800);
         parameters.setPreviewSize(previewSize.width, previewSize.height);
 
         mCenterX = previewSize.width / 2;
         mCenterY = previewSize.height / 2;
         if (BuildConfig.DEBUG)
             Log.i("hellw", "camer center point: mCenterX = " + mCenterX + ", mCenterY = " + mCenterY);
-
+        Log.i("hellw", "preview% = "+(previewSize.height / (float)previewSize.width ));
         camera.setParameters(parameters);//把parameters设置给camera
         camera.startPreview();//开始预览
         camera.setDisplayOrientation(90);//将预览旋转90度
@@ -194,6 +197,7 @@ public class CamerPickerColorActivity extends AppCompatActivity implements Surfa
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         float H = dm.heightPixels;
         float W = dm.widthPixels;
+        Log.i("hellw", "widthPixels = "+W+", heightPixels = "+H);
         return (H/W);
     }
 
