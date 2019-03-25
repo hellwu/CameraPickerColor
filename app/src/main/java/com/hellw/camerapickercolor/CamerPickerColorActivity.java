@@ -64,12 +64,12 @@ public class CamerPickerColorActivity extends AppCompatActivity implements Surfa
         formatRGBcolor = getString(R.string.rgb_color_format);
     }
 
-    private void initCamera() {
+    private void initCamera(int width, int height) {
         Camera.Parameters parameters = camera.getParameters();//获取camera的parameter实例
         List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();//获取所有支持的camera尺寸
         List<Camera.Size> pictureSizes  = parameters.getSupportedPictureSizes();
         float previewRate = getScreenRate(this);
-        float previewRate2 = (1080.0f / 1080.0f);
+        float previewRate2 = (height/ (float)width);
         Log.i("hellw", "previewRate = "+previewRate);
         Log.i("hellw", "previewRate2 = "+previewRate2);
         //设置PictureSize
@@ -182,7 +182,7 @@ public class CamerPickerColorActivity extends AppCompatActivity implements Surfa
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        initCamera();
+        initCamera(width, height);
     }
 
     @Override
